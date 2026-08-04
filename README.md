@@ -80,8 +80,12 @@ No repositorio, va em **Settings > Secrets and variables > Actions**:
 2. Um push na branch `main` ja dispara o pipeline automaticamente. Se precisar,
    use "Re-run all jobs".
 3. Acompanhe os 5 jobs rodando; todos devem ficar verdes.
-4. Acesse `https://<nome-da-webapp>.azurewebsites.net/` no navegador e confirme a
-   mensagem "Pipeline CI/CD funcionando! Deploy realizado com sucesso".
+4. Pegue a URL real da aplicacao no job `deploy-azure` (aparece no link do
+   "Environment" do job, ou na pagina Overview da Web App em "Default domain" —
+   com contas que usam "secure unique default hostname" a URL tem um sufixo
+   aleatorio, ex.: `https://<nome>-xxxxxxxx.<regiao>.azurewebsites.net/`).
+   Acesse essa URL no navegador e confirme a mensagem
+   "Pipeline CI/CD funcionando! Deploy realizado com sucesso".
 
 ### 6. Print e entrega
 

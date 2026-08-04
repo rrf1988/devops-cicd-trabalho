@@ -119,6 +119,8 @@ jobs:
     environment:
       name: AZURE-PRO
       url: ${{ steps.deploy.outputs.webapp-url }}
+    outputs:
+      webapp-url: ${{ steps.deploy.outputs.webapp-url }}
     steps:
       - name: Download do JAR
         uses: actions/download-artifact@v4
@@ -144,6 +146,6 @@ jobs:
 
       - name: Checar se a aplicacao responde
         run: |
-          URL="https://${{ vars.AZURE_WEBAPP_NAME }}.azurewebsites.net/health"
+          URL="${{ needs.deploy-azure.outputs.webapp-url }}/health"
           echo "Checando $URL"
           curl -sf "$URL" || (echo "Aplicacao nao respondeu" && exit 1)
