@@ -56,11 +56,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up JDK 11
+      - name: Set up JDK 17 (exigido pelo scanner do SonarCloud)
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '11'
+          java-version: '17'
 
       - name: Cache SonarCloud packages
         uses: actions/cache@v4
